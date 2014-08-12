@@ -19,12 +19,12 @@ public class SimpleActivity extends Activity implements AdapterView.OnItemClickL
 
     String[] currentArray;
 
-    EditText searchEt;
-    View searchBtn;
-    ListView listView;
+    public EditText searchEt;
+    public View searchBtn;
+    public ListView listView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_acitivity);
 
@@ -55,18 +55,23 @@ public class SimpleActivity extends Activity implements AdapterView.OnItemClickL
     public void onClick(View v) {
         String find = searchEt.getText().toString().toLowerCase();
 
-        SortedSet<String> strings = new TreeSet<String>();
-
-        for (String value : countriesArray) {
-            if (value.toLowerCase().contains(find)) {
-                strings.add(value);
-            }
-        }
+        SortedSet<String> strings = searchStrings(find, countriesArray);
 
         currentArray = new String[strings.size()];
         strings.toArray(currentArray);
 
         ArrayAdapter<String> simpleAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, currentArray);
         listView.setAdapter(simpleAdapter);
+    }
+
+    public static SortedSet<String> searchStrings(String find, String[] array) {
+        SortedSet<String> strings = new TreeSet<String>();
+
+        for (String value : array) {
+            if (value.toLowerCase().contains(find)) {
+                strings.add(value);
+            }
+        }
+        return strings;
     }
 }

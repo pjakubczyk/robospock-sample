@@ -11,6 +11,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion androidCompileSdkVersion as Integer
     buildToolsVersion androidBuildToolVersion
+
+//    defaultConfig {
+//        testPackageName "org.robospock.sample.simple.test"
+//        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+//        testHandleProfiling true
+//        testFunctionalTest true
+//    }
 }
 
 
