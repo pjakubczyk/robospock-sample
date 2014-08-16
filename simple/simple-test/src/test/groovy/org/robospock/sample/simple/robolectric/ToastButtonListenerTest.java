@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowToast;
 import org.robospock.sample.simple.ToastButtonListener;
 
 @RunWith(RobolectricTestRunner.class)
@@ -127,5 +128,17 @@ public class ToastButtonListenerTest {
 
         // then
         Assert.assertEquals("3456789", res);
+    }
+
+    @Test
+    public void testShowingToast() {
+        // given
+        editText.setText("a123456789012");
+
+        // when
+        toastButtonListener.onClick(null);
+
+        // then
+        Assert.assertEquals("3456789", ShadowToast.getTextOfLatestToast());
     }
 }
