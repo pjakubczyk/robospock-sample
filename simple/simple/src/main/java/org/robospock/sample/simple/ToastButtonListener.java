@@ -11,7 +11,7 @@ public class ToastButtonListener implements View.OnClickListener {
     Context context;
     EditText editText;
 
-    public ToastButtonListener(Context context, EditText editText) {
+    public  ToastButtonListener(Context context, EditText editText) {
         this.context = context;
         this.editText = editText;
     }
