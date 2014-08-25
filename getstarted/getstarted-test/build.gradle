@@ -1,0 +1,47 @@
+// check gradle.properties and build.gradle for common configurations
+apply plugin: 'groovy'
+
+def simpleProject = project(":getstarted")
+
+println simpleProject.buildDir
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:1.8.6"
+    compile 'org.robospock:robospock:0.4.4'
+    compile 'cglib:cglib-nodep:3.1'
+    compile simpleProject
+    compile fileTree(dir: simpleProject.file("build/libs"), include: "*.jar")
+}
+
+//apply plugin: 'robospock'
+
+sourceSets.test.java.srcDirs += [simpleProject.buildDir.path + '/generated/source/r/debug']
+
+test {
+    // set heap size for the test JVM(s)
+    minHeapSize = "128m"
+    maxHeapSize = "512m"
+
+    // set JVM arguments for the test JVM(s)
+    jvmArgs '-XX:MaxPermSize=256m'
+
+    // listen to events in the test execution lifecycle
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+
+    // listen to standard out and standard error of the test JVM(s)
+    onOutput { descriptor, event ->
+//        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+    }
+
+    testLogging {
+        lifecycle {
+            exceptionFormat "full"
+        }
+    }
+
+    workingDir = simpleProject.file("src/main")
+}
+
+tasks["test"].dependsOn simpleProject.tasks["zip2jar"]

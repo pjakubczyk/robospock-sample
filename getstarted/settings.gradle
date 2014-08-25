@@ -1,0 +1,4 @@
+include 'getstarted'
+
+include 'getstarted-test'
+
