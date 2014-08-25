@@ -4,6 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0">
 
+    <!-- Robolectric support only API 16 or higher for some reason. Override this value in build.gradle to cover your requirements -->
     <uses-sdk android:minSdkVersion="16" />
 
     <application
