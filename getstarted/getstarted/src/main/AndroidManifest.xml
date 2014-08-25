@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="16" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -12,7 +12,8 @@
         <activity
             android:name=".SimpleActivity"
             android:label="@string/title_activity_simple_acitivity"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
