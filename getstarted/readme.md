@@ -5,11 +5,11 @@ Robospock is a great framework for unit test in Android. It's a combination of S
 
 Once Google has release official plugin for Gradle few projects (including mine) were developed to bind Robolectric and Java plugin.
  
-Since it's quick complex task which requires a lot of edge cases and Android plugin compatibility I decided to write bunch of code which allways work.
-  
+Since it's quick complex task which requires a lot of edge cases and Android plugin compatibility, 
+I decided to drop that idea and write an always-working template project, which you may check out.
 
 Project contains 2 modules - one for production Application and one for unit tests. This partition is necessary because Android plugin doesn't depend on Java plugin
- which leads to compilation errors.
+which leads to compilation errors.
  
 This solution works only for running unit test from CLI.
 
