@@ -3,12 +3,9 @@ package org.robospock.sample.simple.test;
 import android.test.AndroidTestCase;
 import android.widget.EditText;
 
-import junit.framework.Assert;
-
 import org.robospock.sample.simple.ToastButtonListener;
 
 public class ToastButtonListenerTest extends AndroidTestCase {
-
 
     private EditText editText;
     private ToastButtonListener toastButtonListener;
@@ -17,7 +14,6 @@ public class ToastButtonListenerTest extends AndroidTestCase {
     protected void setUp() throws Exception {
         super.setUp();
         editText = new EditText(getContext());
-
         toastButtonListener = new ToastButtonListener(getContext(), editText);
     }
 
@@ -27,7 +23,6 @@ public class ToastButtonListenerTest extends AndroidTestCase {
 
         // when
         ToastButtonListener toastButtonListener = new ToastButtonListener(getContext(), editText);
-
         toastButtonListener.onClick(editText);
 
         // then
@@ -42,7 +37,7 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         CharSequence res = toastButtonListener.trimText();
 
         // then
-        Assert.assertEquals("a", res);
+        assertEquals("a", res);
     }
 
     public void testShortText2() {
@@ -53,7 +48,7 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         CharSequence res = toastButtonListener.trimText();
 
         // then
-        Assert.assertEquals("ab", res);
+        assertEquals("ab", res);
     }
 
     public void testShortText3() {
@@ -64,7 +59,7 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         CharSequence res = toastButtonListener.trimText();
 
         // then
-        Assert.assertEquals("abc", res);
+        assertEquals("abc", res);
     }
 
     public void testNormalTest1() {
@@ -75,7 +70,7 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         String res = toastButtonListener.trimText().toString();
 
         // then
-        Assert.assertEquals("d", res);
+        assertEquals("d", res);
     }
 
     public void testNormalTest2() {
@@ -86,10 +81,10 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         String res = toastButtonListener.trimText().toString();
 
         // then
-        Assert.assertEquals("de", res);
+        assertEquals("de", res);
     }
 
-    public void testLongText1(){
+    public void testLongText1() {
         // given
         editText.setText("a1234567890");
 
@@ -97,10 +92,10 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         String res = toastButtonListener.trimText().toString();
 
         // then
-        Assert.assertEquals("3456789", res);
+        assertEquals("3456789", res);
     }
 
-    public void testLongText2(){
+    public void testLongText2() {
         // given
         editText.setText("a12345678901");
 
@@ -108,10 +103,10 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         String res = toastButtonListener.trimText().toString();
 
         // then
-        Assert.assertEquals("3456789", res);
+        assertEquals("3456789", res);
     }
 
-    public void testLongText3(){
+    public void testLongText3() {
         // given
         editText.setText("a123456789012");
 
@@ -119,6 +114,6 @@ public class ToastButtonListenerTest extends AndroidTestCase {
         String res = toastButtonListener.trimText().toString();
 
         // then
-        Assert.assertEquals("3456789", res);
+        assertEquals("3456789", res);
     }
 }

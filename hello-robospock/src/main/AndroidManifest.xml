@@ -13,8 +13,8 @@
         <activity
             android:name=".SimpleActivity"
             android:label="@string/title_activity_simple_acitivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/Theme.AppCompat">
+            android:theme="@style/Theme.AppCompat"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

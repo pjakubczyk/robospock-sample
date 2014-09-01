@@ -6,19 +6,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 public class ToastButtonListener implements View.OnClickListener {
 
     Context context;
     EditText editText;
 
-    public  ToastButtonListener(Context context, EditText editText) {
+    public ToastButtonListener(Context context, EditText editText) {
         this.context = context;
         this.editText = editText;
     }
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(context, trimText(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, trimText(), LENGTH_SHORT).show();
     }
 
     public CharSequence trimText() {
