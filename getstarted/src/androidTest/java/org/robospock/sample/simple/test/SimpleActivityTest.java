@@ -31,7 +31,7 @@ public class SimpleActivityTest extends ActivityUnitTestCase<SimpleActivity> {
         Assert.assertNotNull(simpleActivity.button);
     }
 
-    public void testEditTextHint(){
+    public void testEditTextHint() {
         // given
         EditText editText = simpleActivity.editText;
 
@@ -39,7 +39,7 @@ public class SimpleActivityTest extends ActivityUnitTestCase<SimpleActivity> {
         Assert.assertEquals("Type Here", editText.getHint());
     }
 
-    public void testButtonText(){
+    public void testButtonText() {
         // given
         Button button = simpleActivity.button;
 
@@ -47,7 +47,7 @@ public class SimpleActivityTest extends ActivityUnitTestCase<SimpleActivity> {
         Assert.assertEquals("Go Toast!", button.getText());
     }
 
-    public void testClickListener(){
+    public void testClickListener() {
         // only in API 15 :(
         Assert.assertNotNull(simpleActivity.button.hasOnClickListeners());
     }
