@@ -1,0 +1,30 @@
+buildscript {
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
+    }
+}
+apply plugin: 'android-sdk-manager'
+apply plugin: 'com.android.application'
+
+// ------- Android plugin configuration ------- //
+android {
+    compileSdkVersion androidCompileSdkVersion as Integer
+    buildToolsVersion androidBuildToolVersion
+}
+
+
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:20.0.0'
+}
+
+// this tasks is wrapper of compiled classes
+// feel free to change from Release to Debug
+// if application has flavours mind to check again task and path name
+task zip2jar(type: Zip, dependsOn: "compileReleaseJava") {
+    from 'build/intermediates/classes/release'
+    destinationDir = file('build/libs')
+    extension = "jar"
+}
+
