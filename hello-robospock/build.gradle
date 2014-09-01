@@ -11,6 +11,10 @@ buildscript {
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
+
 // ------- Android plugin configuration ------- //
 android {
     compileSdkVersion androidCompileSdkVersion as Integer
