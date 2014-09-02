@@ -1,7 +1,7 @@
 package org.robospock.sample.simple;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -9,7 +9,7 @@ import static org.robospock.sample.simple.R.id.edit_text;
 import static org.robospock.sample.simple.R.id.show_toast;
 import static org.robospock.sample.simple.R.layout.activity_simple_acitivity;
 
-public class SimpleActivity extends ActionBarActivity {
+public class SimpleActivity extends Activity {
 
     public EditText editText;
     public Button button;
